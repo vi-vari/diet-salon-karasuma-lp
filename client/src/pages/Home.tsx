@@ -269,11 +269,11 @@ export default function Home() {
           {/* エステティシャン */}
           <h3 className="text-[#4b4f58] text-lg font-semibold mb-4" style={{ fontFamily: "Inter, sans-serif" }}>エステティシャン：小川　葵</h3>
           <div className="flex justify-center mb-4">
-            <div className="w-[177px] h-[236px] overflow-hidden">
+            <div className="relative w-[185px] h-[185px] rounded-full overflow-hidden bg-[#d9d9d9]">
               <img
                 src={a("142-125")}
                 alt="エステティシャン 小川葵"
-                className="w-full h-full object-cover"
+                className="absolute w-full h-full object-cover object-top"
               />
             </div>
           </div>
