@@ -72,7 +72,7 @@ function CTASection() {
       <div className="max-w-[700px] mx-auto flex flex-col items-center gap-3">
         {/* LINEボタン */}
         <a
-          href="https://lin.ee/wl9Qftk"
+          href="https://liff.line.me/1657543912-RMJdJXbp/landing?follow=%40798ddeqo&lp=MIuuvw&liff_id=1657543912-RMJdJXbp"
           className="flex items-center justify-center gap-3 w-[321px] h-[49px] bg-[#4dce6e] rounded-[3px] hover:opacity-90 transition-opacity"
           style={{ textDecoration: "none" }}
         >
