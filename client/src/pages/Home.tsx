@@ -34,7 +34,7 @@ const assets: Record<string, string> = {
   "142-80":  `${CDN}/142-80_010a752a.webp`,   // col3 row2
   "148-291": `${CDN}/148-291_93b38a0f.webp`,  // col4 row2
   // Row3: top=341-345
-  "142-57":  `${CDN}/142-57_b6b609fe.webp`,   // col1 row3
+  "142-57":  `https://d2xsxph8kpxj0f.cloudfront.net/310519663410806327/NFRy6cqKwQ2eYnH7FeCjbV/Link_30daf964.png`,   // col1 row3 (差し替え済み)
   "152-298": `${CDN}/152-298_f301a8b4.webp`,  // col2 row3
   "142-86":  `${CDN}/142-86_2d544839.webp`,   // col3 row3
   "148-293": `${CDN}/148-293_b8121bfa.webp`,  // col4 row3
