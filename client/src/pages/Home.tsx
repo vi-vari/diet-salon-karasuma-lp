@@ -7,7 +7,6 @@
  */
 
 import { useRef } from "react";
-import { MapView } from "@/components/Map";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663410806327/NFRy6cqKwQ2eYnH7FeCjbV";
 
@@ -69,25 +68,25 @@ function a(id: string) {
 function CTASection() {
   return (
     <div className="w-full bg-white py-8 px-5">
-      <div className="max-w-[700px] mx-auto flex flex-col items-center gap-3">
+      <div className="max-w-[700px] mx-auto flex flex-col items-center gap-3 px-6">
         {/* LINEボタン */}
         <a
           href="https://liff.line.me/1657543912-RMJdJXbp/landing?follow=%40798ddeqo&lp=MIuuvw&liff_id=1657543912-RMJdJXbp"
-          className="flex items-center justify-center gap-3 w-[321px] h-[49px] bg-[#4dce6e] rounded-[3px] hover:opacity-90 transition-opacity"
+          className="flex items-center justify-center gap-3 w-full max-w-[340px] h-[54px] px-6 bg-[#4dce6e] rounded-[3px] hover:opacity-90 transition-opacity"
           style={{ textDecoration: "none" }}
         >
-          <i className="fab fa-line text-white text-2xl leading-none"></i>
-          <span className="text-white text-[22px] font-semibold leading-none" style={{ fontFamily: "Inter, sans-serif" }}>LINE講座をスタート</span>
+          <i className="fab fa-line text-white text-xl leading-none flex-shrink-0"></i>
+          <span className="text-white text-[18px] sm:text-[22px] font-semibold leading-none whitespace-nowrap" style={{ fontFamily: "Inter, sans-serif" }}>LINE講座をスタート</span>
         </a>
         <p className="text-center text-[#3a3a3a] text-[15px] font-normal">1週間で痩せ体質を作る無料講座をプレゼント中🎁</p>
         {/* HOT PEPPERボタン */}
         <a
           href="https://beauty.hotpepper.jp/kr/slnH000752318/"
-          className="flex items-center justify-center gap-3 w-[392px] h-[49px] bg-[#bf1391] rounded-[3px] hover:opacity-90 transition-opacity"
+          className="flex items-center justify-center gap-3 w-full max-w-[340px] h-[54px] px-6 bg-[#bf1391] rounded-[3px] hover:opacity-90 transition-opacity"
           style={{ textDecoration: "none" }}
         >
-          <i className="fas fa-calendar-alt text-white text-2xl leading-none"></i>
-          <span className="text-white text-[22px] font-semibold leading-none" style={{ fontFamily: "Inter, sans-serif" }}>ホットペッパーで予約する</span>
+          <i className="fas fa-calendar-alt text-white text-xl leading-none flex-shrink-0"></i>
+          <span className="text-white text-[18px] sm:text-[22px] font-semibold leading-none whitespace-nowrap" style={{ fontFamily: "Inter, sans-serif" }}>ホットペッパーで予約する</span>
         </a>
         <p className="text-center text-[#3a3a3a] text-sm font-normal">今すぐ予約したい方はこちらからどうぞ</p>
         <p className="text-center text-[#3a3a3a] text-sm font-normal">ダイエットカウンセリングが初回限定500円🎉</p>
@@ -107,7 +106,7 @@ function ListItem({ text }: { text: string }) {
 }
 
 export default function Home() {
-  const mapRef = useRef<google.maps.Map | null>(null);
+  const mapRef = useRef<null>(null);
 
   // 口コミ画像グリッド（Figmaの正確な順序）
   // Row1: 142-65, 142-67, 142-69, 142-72
@@ -328,30 +327,17 @@ export default function Home() {
             <ListItem text="住所：京都府京都市中京区蛸薬師通烏丸西入橋弁慶町234 Mjp烏丸ビル3F 南東側" />
             <ListItem text="カードOK / 交通系IC / PayPay" />
           </div>
-          {/* Googleマップ埋め込み */}
-          <div className="w-full overflow-hidden rounded">
-            <MapView
-              className="w-full h-[400px]"
-              initialCenter={{ lat: 35.0035, lng: 135.7587 }}
-              initialZoom={16}
-              onMapReady={(map) => {
-                mapRef.current = map;
-                const geocoder = new window.google.maps.Geocoder();
-                geocoder.geocode(
-                  { address: "京都府京都市中京区蛸薬師通烏丸西入橋弁慶町234 Mjp烏丸ビル 美VARI Beauty Salon" },
-                  (results, status) => {
-                    if (status === "OK" && results && results[0]) {
-                      const location = results[0].geometry.location;
-                      map.setCenter(location);
-                      new window.google.maps.marker.AdvancedMarkerElement({
-                        map,
-                        position: location,
-                        title: "美VARI Beauty Salon 四条烏丸整体院",
-                      });
-                    }
-                  }
-                );
-              }}
+          {/* Googleマップ埋め込み（iframe方式 - 本番環境対応） */}
+          <div className="w-full overflow-hidden rounded" style={{ height: '400px' }}>
+            <iframe
+              title="美VARI Beauty Salon 四条烏丸整体院 地図"
+              src="https://maps.google.com/maps?q=%E7%BE%8EVARI+Beauty+Salon+%E5%9B%9B%E6%9D%A1%E7%83%8F%E4%B8%B8%E6%95%B4%E4%BD%93%E9%99%A2&output=embed&hl=ja"
+              width="100%"
+              height="400"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen
+              loading="eager"
+              referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
         </div>
