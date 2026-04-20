@@ -291,12 +291,11 @@ export default function Home() {
           <div className="border-t border-neutral-200 pt-6">
             <h3 className="text-[#4b4f58] text-lg font-semibold mb-4" style={{ fontFamily: "Inter, sans-serif" }}>代表：阪東　繁樹</h3>
             <div className="flex justify-center mb-4">
-              <div className="relative w-[185px] h-[185px] rounded-full overflow-hidden bg-[#d9d9d9]">
+              <div className="relative w-[185px] h-[185px] rounded-full overflow-hidden bg-[#d9d9d9] flex justify-center items-center">
                 <img
                   src={a("142-177")}
                   alt="代表 阪東繁樹"
-                  className="absolute object-cover"
-                  style={{ width: "213px", height: "284px", top: "-12px", left: "-14px" }}
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </div>
