@@ -12,7 +12,7 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663410806327/NFRy6cqKwQ
 
 const assets: Record<string, string> = {
   // FV
-  "142-4":   "/manus-storage/fv-hero_6adb170a.png",
+  "142-4":   "/diet-salon-karasuma-lp/fv-hero.png",
   // B/A実績
   "142-19":  `${CDN}/142-19_d2aed65d.webp`,
   "142-21":  `${CDN}/142-21_69c3d77d.webp`,
@@ -25,7 +25,7 @@ const assets: Record<string, string> = {
   // Row1: left=0, left=167.5, left=340, left=512.5 (top=0)
   "142-65":  `${CDN}/142-65_21a1a82d.webp`,   // col1 row1
   "142-67":  `${CDN}/142-67_982e0cf3.webp`,   // col2 row1
-  "142-69":  "/manus-storage/review-link_23bf2f18.png",   // col3 row1
+  "142-69":  "/diet-salon-karasuma-lp/review-link.png",   // col3 row1
   "142-72":  `${CDN}/142-72_d0b87962.webp`,   // col4 row1
   // Row2: top=169-172
   "142-74":  `${CDN}/142-74_1bca7c55.webp`,   // col1 row2
