@@ -81,7 +81,7 @@ function CTASection() {
         <p className="text-center text-[#3a3a3a] text-[15px] font-normal">1週間で痩せ体質を作る無料講座をプレゼント中🎁</p>
         {/* HOT PEPPERボタン */}
         <a
-          href="https://beauty.hotpepper.jp/kr/slnH000752318/"
+          href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000752318&couponId=CP00000011986028&add=0&rootCd=10"
           className="flex items-center justify-center gap-3 w-full max-w-[340px] h-[54px] px-6 bg-[#bf1391] rounded-[3px] hover:opacity-90 transition-opacity"
           style={{ textDecoration: "none" }}
         >
