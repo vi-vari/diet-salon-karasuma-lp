@@ -12,7 +12,7 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663410806327/NFRy6cqKwQ
 
 const assets: Record<string, string> = {
   // FV
-  "142-4":   "/diet-salon-karasuma-lp/fv-hero.png",
+  "142-4":   "/diet-salon-karasuma-lp/fv-hero.webp",
   // B/A実績
   "142-19":  `${CDN}/142-19_d2aed65d.webp`,
   "142-21":  `${CDN}/142-21_69c3d77d.webp`,
