@@ -1,0 +1,86 @@
+name: Deploy to GitHub Pages
+
+# main への push で自動的にビルドし、gh-pages ブランチへ反映する。
+# GitHub Pages の公開元は「Deploy from a branch: gh-pages」のままで動作する。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# 連続 push 時に古いデプロイが後から上書きするのを防ぐ
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        # バージョンは package.json の packageManager フィールドに従う
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        env:
+          # 本番ビルド（デバッグコレクタは注入されない）
+          NODE_ENV: production
+          # base を /diet-salon-karasuma-lp/ にする
+          GITHUB_PAGES: 'true'
+          # 未設定だと index.html に %VITE_...% がそのまま残るため空文字で解決させる
+          VITE_ANALYTICS_ENDPOINT: ${{ vars.VITE_ANALYTICS_ENDPOINT }}
+          VITE_ANALYTICS_WEBSITE_ID: ${{ vars.VITE_ANALYTICS_WEBSITE_ID }}
+        run: pnpm exec vite build
+
+      - name: Verify build output
+        run: |
+          test -f dist/public/index.html || { echo "index.html が生成されていません"; exit 1; }
+          test -f dist/public/fv-hero.webp || { echo "FV画像が生成されていません"; exit 1; }
+          if grep -q '%VITE_' dist/public/index.html; then
+            echo "未解決の環境変数プレースホルダが残っています"; exit 1
+          fi
+          echo "ビルド出力の検証OK"
+
+      - name: Deploy to gh-pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # 既存の gh-pages があればその履歴を引き継ぐ（無ければ新規作成）
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            git fetch origin gh-pages
+            git worktree add ghp origin/gh-pages
+            git -C ghp checkout -B gh-pages
+          else
+            git worktree add --detach ghp
+            git -C ghp checkout --orphan gh-pages
+          fi
+
+          # .git 以外を消してビルド成果物で置き換える
+          find ghp -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          cp -r dist/public/. ghp/
+
+          git -C ghp add -A
+          if git -C ghp diff --cached --quiet; then
+            echo "変更なしのためデプロイをスキップします"
+          else
+            git -C ghp commit -m "Deploy from ${GITHUB_SHA}"
+            git -C ghp push origin gh-pages
+            echo "gh-pages へデプロイしました"
+          fi
