@@ -55,6 +55,13 @@ jobs:
           if grep -q '%VITE_' dist/public/index.html; then
             echo "未解決の環境変数プレースホルダが残っています"; exit 1
           fi
+          # 外部CDN（Manusのcloudfront）参照が復活していないか検出する。
+          # このCDNは失効しており、参照が残ると画像がリンク切れになる。
+          if grep -rq 'cloudfront' dist/public/; then
+            echo "外部CDN参照が残っています（画像リンク切れの原因になります）"
+            grep -rl 'cloudfront' dist/public/
+            exit 1
+          fi
           echo "ビルド出力の検証OK"
 
       - name: Deploy to gh-pages
