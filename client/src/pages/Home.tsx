@@ -8,56 +8,60 @@
 
 import { useRef } from "react";
 
-const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663410806327/NFRy6cqKwQ2eYnH7FeCjbV";
+// 画像はすべてリポジトリ同梱のローカルアセットを参照する（外部CDN依存を排除）。
+// BASE_URL は dev で "/"、GitHub Pages ビルドで "/diet-salon-karasuma-lp/" になる。
+const BASE = import.meta.env.BASE_URL;
+const asset = (file: string) => `${BASE}assets/${file}`;
+const publicFile = (file: string) => `${BASE}${file}`;
 
 const assets: Record<string, string> = {
   // FV
-  "142-4":   "/diet-salon-karasuma-lp/fv-hero.webp",
+  "142-4":   publicFile("fv-hero.webp"),
   // B/A実績
-  "142-19":  `${CDN}/142-19_d2aed65d.webp`,
-  "142-21":  `${CDN}/142-21_69c3d77d.webp`,
-  "142-23":  `${CDN}/142-23_f354476e.webp`,
-  "142-25":  `${CDN}/142-25_09472292.webp`,
-  "142-27":  `${CDN}/142-27_ab132d1c.webp`,
-  "142-29":  `${CDN}/142-29_b921fcee.webp`,
-  "142-31":  `${CDN}/142-31_5727c1d9.webp`,
+  "142-19":  asset("142-19.webp"),
+  "142-21":  asset("142-21.webp"),
+  "142-23":  asset("142-23.webp"),
+  "142-25":  asset("142-25.webp"),
+  "142-27":  asset("142-27.webp"),
+  "142-29":  asset("142-29.webp"),
+  "142-31":  asset("142-31.webp"),
   // 口コミグリッド画像（正確なFigma順序）
   // Row1: left=0, left=167.5, left=340, left=512.5 (top=0)
-  "142-65":  `${CDN}/142-65_21a1a82d.webp`,   // col1 row1
-  "142-67":  `${CDN}/142-67_982e0cf3.webp`,   // col2 row1
-  "142-69":  "/diet-salon-karasuma-lp/review-link.png",   // col3 row1
-  "142-72":  `${CDN}/142-72_d0b87962.webp`,   // col4 row1
+  "142-65":  asset("142-65.webp"),   // col1 row1
+  "142-67":  asset("142-67.webp"),   // col2 row1
+  "142-69":  publicFile("review-link.png"),   // col3 row1
+  "142-72":  asset("142-72.webp"),   // col4 row1
   // Row2: top=169-172
-  "142-74":  `${CDN}/142-74_1bca7c55.webp`,   // col1 row2
-  "148-292": `${CDN}/148-292_d9fc94b9.webp`,  // col2 row2
-  "142-80":  `${CDN}/142-80_010a752a.webp`,   // col3 row2
-  "148-291": `${CDN}/148-291_93b38a0f.webp`,  // col4 row2
+  "142-74":  asset("142-74.webp"),   // col1 row2
+  "148-292": asset("148-292.webp"),  // col2 row2
+  "142-80":  asset("142-80.webp"),   // col3 row2
+  "148-291": asset("148-291.webp"),  // col4 row2
   // Row3: top=341-345
-  "142-57":  `https://d2xsxph8kpxj0f.cloudfront.net/310519663410806327/NFRy6cqKwQ2eYnH7FeCjbV/Link_30daf964.png`,   // col1 row3 (差し替え済み)
-  "152-298": `${CDN}/152-298_f301a8b4.webp`,  // col2 row3
-  "142-86":  `${CDN}/142-86_2d544839.webp`,   // col3 row3
-  "148-293": `${CDN}/148-293_b8121bfa.webp`,  // col4 row3
+  "142-57":  publicFile("review-link.png"),   // col1 row3 (差し替え済み)
+  "152-298": asset("152-298.webp"),  // col2 row3
+  "142-86":  asset("142-86.webp"),   // col3 row3
+  "148-293": asset("148-293.webp"),  // col4 row3
   // こだわりセクション
-  "142-105": `${CDN}/142-105_60ae51a5.webp`,
-  "156-303": `${CDN}/156-303_afb943bb.webp`,
-  "142-109": `${CDN}/142-109_cc52b634.webp`,
-  "142-113": `${CDN}/142-113_131357dc.webp`,
+  "142-105": asset("142-105.webp"),
+  "156-303": asset("156-303.webp"),
+  "142-109": asset("142-109.webp"),
+  "142-113": asset("142-113.webp"),
   // スタッフ
-  "142-125": `${CDN}/142-125_be3391fe.webp`,
-  "142-177": `${CDN}/142-177_9b1e2880.webp`,
+  "142-125": asset("142-125.webp"),
+  "142-177": asset("142-177.webp"),
   // 店舗情報
-  "142-181": `${CDN}/142-181_5b59a469.webp`,
+  "142-181": asset("142-181.webp"),
   // BOOK特典
-  "142-235": `${CDN}/142-235_ee01c237.webp`,
-  "142-267": `${CDN}/142-267_e6939135.webp`,
+  "142-235": asset("142-235.webp"),
+  "142-267": asset("142-267.webp"),
   // 成功する理由
-  "142-251": `${CDN}/142-251_9054752c.webp`,
-  "142-256": `${CDN}/142-256_6e8c840a.webp`,
-  "142-261": `${CDN}/142-261_05e7eac8.webp`,
+  "142-251": asset("142-251.webp"),
+  "142-256": asset("142-256.webp"),
+  "142-261": asset("142-261.webp"),
   // 免許
-  "142-280": `${CDN}/142-280_74b8451a.webp`,
-  "142-281": `${CDN}/142-281_626b87aa.webp`,
-  "142-282": `${CDN}/142-282_ce245d62.webp`,
+  "142-280": asset("142-280.webp"),
+  "142-281": asset("142-281.webp"),
+  "142-282": asset("142-282.webp"),
 };
 
 function a(id: string) {
