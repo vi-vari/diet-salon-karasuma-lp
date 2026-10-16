@@ -184,7 +184,7 @@ function CTASection() {
             }}
           >
             {/* 内側の明るいリング（参考デザインの二重線） */}
-            <span className="pointer-events-none absolute inset-[2.5px] rounded-full border border-[#FFCEE1]"></span>
+            <span className="pointer-events-none absolute top-[1.5px] left-[1.5px] right-[1.5px] bottom-[3px] rounded-full border border-[#FFCEE1]"></span>
             {/* キラキラ装飾（静止） */}
             <span className="pointer-events-none absolute left-[12px] top-[9px] text-white text-[9px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
             <span className="pointer-events-none absolute left-[52px] top-[6px] text-white text-[10px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
@@ -206,7 +206,7 @@ function CTASection() {
               className="relative flex-1 min-w-0 text-center text-white font-semibold leading-none whitespace-nowrap"
               style={{
                 fontFamily: "Inter, 'Noto Sans JP', sans-serif",
-                textShadow: "0 0 5px rgba(255,255,255,0.55)",
+                textShadow: "0 0 3px rgba(255,255,255,0.4)",
                 letterSpacing: "0.02em",
                 fontSize: "clamp(12px, 4.15vw, 17px)",
               }}
