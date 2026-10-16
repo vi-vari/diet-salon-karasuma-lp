@@ -184,13 +184,13 @@ function CTASection() {
             }}
           >
             {/* 内側の明るいリング（参考デザインの二重線） */}
-            <span className="pointer-events-none absolute inset-[4px] rounded-full border border-[#FFE0EC]/70"></span>
+            <span className="pointer-events-none absolute inset-[2.5px] rounded-full border border-[#FFCEE1]"></span>
             {/* キラキラ装飾（静止） */}
-            <span className="pointer-events-none absolute left-[12px] top-[9px] text-white text-[11px] leading-none" style={{ textShadow: "0 0 6px rgba(255,255,255,0.95)" }}>✦</span>
-            <span className="pointer-events-none absolute left-[52px] top-[6px] text-white text-[13px] leading-none" style={{ textShadow: "0 0 7px rgba(255,255,255,0.95)" }}>✦</span>
-            <span className="pointer-events-none absolute left-[62px] bottom-[9px] text-white/85 text-[9px] leading-none" style={{ textShadow: "0 0 6px rgba(255,255,255,0.9)" }}>✦</span>
-            <span className="pointer-events-none absolute right-[64px] top-[8px] text-white/85 text-[10px] leading-none" style={{ textShadow: "0 0 6px rgba(255,255,255,0.9)" }}>✦</span>
-            <span className="pointer-events-none absolute right-[44px] bottom-[10px] text-white text-[11px] leading-none" style={{ textShadow: "0 0 6px rgba(255,255,255,0.95)" }}>✦</span>
+            <span className="pointer-events-none absolute left-[12px] top-[9px] text-white text-[9px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
+            <span className="pointer-events-none absolute left-[52px] top-[6px] text-white text-[10px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
+            <span className="pointer-events-none absolute left-[62px] bottom-[9px] text-white/85 text-[7px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
+            <span className="pointer-events-none absolute right-[64px] top-[8px] text-white/85 text-[8px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
+            <span className="pointer-events-none absolute right-[44px] bottom-[10px] text-white text-[8px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
 
             {/* ホットペッパービューティーの「B」（27px） */}
             <span className="relative shrink-0 grid place-items-center w-[27px] h-[27px] max-[359px]:w-[23px] max-[359px]:h-[23px] rounded-[9px] bg-white">
@@ -206,7 +206,7 @@ function CTASection() {
               className="relative flex-1 min-w-0 text-center text-white font-semibold leading-none whitespace-nowrap"
               style={{
                 fontFamily: "Inter, 'Noto Sans JP', sans-serif",
-                textShadow: "0 1px 2px rgba(190,80,115,0.45)",
+                textShadow: "0 0 5px rgba(255,255,255,0.55)",
                 letterSpacing: "0.02em",
                 fontSize: "clamp(12px, 4.15vw, 17px)",
               }}
