@@ -68,30 +68,117 @@ function a(id: string) {
   return assets[id] || "";
 }
 
-// CTAボタンコンポーネント（同一タブで遷移）
+// CTAボタン左の金色矢印。アニメーションは index.css の .cta-arrow に定義。
+function CtaArrow() {
+  return (
+    <svg
+      className="cta-arrow shrink-0 w-[26px] h-[26px] sm:w-[30px] sm:h-[30px]"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M2 8.5 H12 V3 L22.5 12 L12 21 V15.5 H2 Z" fill="#E3A51F" />
+    </svg>
+  );
+}
+
+// ボタン右端の丸枠「>」
+function CtaChevron() {
+  return (
+    <span className="shrink-0 grid place-items-center w-[30px] h-[30px] sm:w-[34px] sm:h-[34px] rounded-full border-2 border-white/90">
+      <svg viewBox="0 0 24 24" className="w-[13px] h-[13px] sm:w-[15px] sm:h-[15px]" aria-hidden="true" focusable="false">
+        <path d="M8.5 3.5 L17 12 L8.5 20.5" fill="none" stroke="#ffffff" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
+
 function CTASection() {
   return (
     <div className="w-full bg-white py-8 px-5">
-      <div className="max-w-[700px] mx-auto flex flex-col items-center gap-3 px-6">
+      <div className="max-w-[700px] mx-auto flex flex-col items-center gap-3">
         {/* LINEボタン */}
-        <a
-          href="https://liff.line.me/1657543912-RMJdJXbp/landing?follow=%40798ddeqo&lp=MIuuvw&liff_id=1657543912-RMJdJXbp"
-          className="flex items-center justify-center gap-3 w-full max-w-[340px] h-[54px] px-6 bg-[#4dce6e] rounded-[3px] hover:opacity-90 transition-opacity"
-          style={{ textDecoration: "none" }}
-        >
-          <i className="fab fa-line text-white text-xl leading-none flex-shrink-0"></i>
-          <span className="text-white text-[18px] sm:text-[22px] font-semibold leading-none whitespace-nowrap" style={{ fontFamily: "Inter, sans-serif" }}>LINE講座をスタート</span>
-        </a>
+        <div className="w-full max-w-[400px] flex items-center gap-2">
+          <CtaArrow />
+          <a
+            href="https://liff.line.me/1657543912-RMJdJXbp/landing?follow=%40798ddeqo&lp=MIuuvw&liff_id=1657543912-RMJdJXbp"
+            className="flex-1 min-w-0 flex items-center gap-2 sm:gap-3 h-[66px] pl-2 pr-3 rounded-full bg-gradient-to-b from-[#45d96f] to-[#06a94d] shadow-[0_4px_0_#05833c,0_6px_14px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-[2px] active:shadow-[0_2px_0_#05833c] transition-all"
+            style={{ textDecoration: "none" }}
+          >
+            <span className="shrink-0 grid place-items-center w-[44px] h-[44px] sm:w-[50px] sm:h-[50px] rounded-[12px] sm:rounded-[14px] bg-white">
+              <svg viewBox="0 0 40 40" className="w-[42px] h-[42px]" aria-hidden="true" focusable="false">
+                <rect x="1" y="1" width="38" height="38" rx="11" fill="#06C755" />
+                <text
+                  x="20"
+                  y="25.5"
+                  textAnchor="middle"
+                  fill="#ffffff"
+                  fontSize="11.5"
+                  fontWeight="700"
+                  letterSpacing="0.6"
+                  fontFamily="Inter, Helvetica, Arial, sans-serif"
+                >
+                  LINE
+                </text>
+              </svg>
+            </span>
+            <span className="flex-1 min-w-0 flex flex-col items-center gap-[3px]">
+              <span className="px-3 py-[2px] rounded-full bg-white text-[#06a94d] text-[11px] sm:text-[12px] font-bold leading-none whitespace-nowrap">
+                LINE登録者限定
+              </span>
+              <span
+                className="text-[#FFE94A] font-black leading-none whitespace-nowrap"
+                style={{
+                  fontFamily: "Inter, 'Noto Sans JP', sans-serif",
+                  textShadow: "0 2px 0 rgba(0,0,0,0.18)",
+                  fontSize: "clamp(15px, 4.6vw, 21px)",
+                }}
+              >
+                LINE講座をスタート
+              </span>
+            </span>
+            <CtaChevron />
+          </a>
+        </div>
         <p className="text-center text-[#3a3a3a] text-[15px] font-normal">1週間で痩せ体質を作る無料講座をプレゼント中🎁</p>
+
         {/* HOT PEPPERボタン */}
-        <a
-          href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000752318&couponId=CP00000011986028&add=0&rootCd=10"
-          className="flex items-center justify-center gap-3 w-full max-w-[340px] h-[54px] px-6 bg-[#bf1391] rounded-[3px] hover:opacity-90 transition-opacity"
-          style={{ textDecoration: "none" }}
-        >
-          <i className="fas fa-calendar-alt text-white text-xl leading-none flex-shrink-0"></i>
-          <span className="text-white text-[18px] sm:text-[22px] font-semibold leading-none whitespace-nowrap" style={{ fontFamily: "Inter, sans-serif" }}>ホットペッパーで予約する</span>
-        </a>
+        <div className="w-full max-w-[400px] flex items-center gap-2">
+          <CtaArrow />
+          <a
+            href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000752318&couponId=CP00000011986028&add=0&rootCd=10"
+            className="relative flex-1 min-w-0 flex items-center gap-2 sm:gap-3 h-[66px] pl-2 pr-3 rounded-full bg-gradient-to-b from-[#e8356f] to-[#b50f4e] border-2 border-[#8e0b3c] shadow-[0_4px_0_#8e0b3c,0_6px_14px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-[2px] active:shadow-[0_2px_0_#8e0b3c] transition-all overflow-hidden"
+            style={{ textDecoration: "none" }}
+          >
+            {/* 内側の細い縁取り（参考デザインの二重線） */}
+            <span className="pointer-events-none absolute inset-[3px] rounded-full border border-white/35"></span>
+            {/* キラキラ装飾（静止） */}
+            <span className="pointer-events-none absolute left-[72px] top-[9px] text-white/90 text-[11px] leading-none">✦</span>
+            <span className="pointer-events-none absolute left-[128px] bottom-[10px] text-white/70 text-[9px] leading-none">✦</span>
+            <span className="pointer-events-none absolute right-[76px] top-[11px] text-white/70 text-[9px] leading-none">✦</span>
+            <span className="pointer-events-none absolute right-[52px] bottom-[12px] text-white/90 text-[11px] leading-none">✦</span>
+
+            <span className="shrink-0 grid place-items-center w-[44px] h-[44px] sm:w-[50px] sm:h-[50px] rounded-[12px] sm:rounded-[14px] bg-white">
+              <span
+                className="text-[#d81b60] text-[30px] font-bold leading-none"
+                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+              >
+                B
+              </span>
+            </span>
+            <span
+              className="flex-1 min-w-0 text-center text-white font-bold leading-tight"
+              style={{
+                fontFamily: "Inter, 'Noto Sans JP', sans-serif",
+                textShadow: "0 2px 0 rgba(0,0,0,0.18)",
+                fontSize: "clamp(13px, 4.2vw, 17px)",
+              }}
+            >
+              ホットペッパーで予約する
+            </span>
+            <CtaChevron />
+          </a>
+        </div>
         <p className="text-center text-[#3a3a3a] text-sm font-normal">今すぐ予約したい方はこちらからどうぞ</p>
         <p className="text-center text-[#3a3a3a] text-sm font-normal">ダイエットカウンセリングが初回限定500円🎉</p>
       </div>

@@ -175,3 +175,28 @@
     }
   }
 }
+/* ===== CTAボタン左の金色矢印アニメーション =====
+   参考デザインの実測値に合わせている（20fpsでフレーム解析した結果）:
+   - 1.0秒サイクル
+   - 表示 約0.55秒 / 非表示 約0.45秒
+   - 瞬間的な点滅ではなく、フェードインしながら右へ少しスライドする */
+@keyframes cta-arrow-nudge {
+  0%   { opacity: 0; transform: translateX(-2px); }
+  10%  { opacity: 1; transform: translateX(0); }
+  57%  { opacity: 1; transform: translateX(3px); }
+  63%  { opacity: 0; transform: translateX(3.5px); }
+  100% { opacity: 0; transform: translateX(-2px); }
+}
+
+.cta-arrow {
+  animation: cta-arrow-nudge 1s linear infinite;
+}
+
+/* 動きを抑える設定にしているユーザーには、静止した矢印を表示する */
+@media (prefers-reduced-motion: reduce) {
+  .cta-arrow {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
