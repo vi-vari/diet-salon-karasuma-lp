@@ -68,12 +68,11 @@ function a(id: string) {
   return assets[id] || "";
 }
 
-// CTAボタン左の金色矢印。寸法・色は参考デザインから実測した値（27.5x29.5px）。
-// 点滅アニメーションは index.css の .cta-arrow に定義。
+// CTAボタン左の金色矢印。点滅アニメーションは index.css の .cta-arrow に定義。
 function CtaArrow() {
   return (
     <svg
-      className="cta-arrow shrink-0 w-[28px] h-[30px] drop-shadow-[1px_2px_1px_rgba(0,0,0,0.15)]"
+      className="cta-arrow shrink-0 w-[26px] h-[28px] sm:w-[30px] sm:h-[32px] drop-shadow-[1px_2px_1px_rgba(0,0,0,0.15)]"
       viewBox="0 0 55 59"
       aria-hidden="true"
       focusable="false"
@@ -89,78 +88,25 @@ function CtaArrow() {
   );
 }
 
-// ボタン右端の丸。白い円の中にブランド色のシェブロンが入る。
-function CtaChevron({ color, box, icon }: { color: string; box: string; icon: string }) {
-  return (
-    <span className={`shrink-0 grid place-items-center rounded-full bg-white ${box}`}>
-      <svg viewBox="0 0 24 24" className={icon} aria-hidden="true" focusable="false">
-        <path
-          d="M9 4 L17 12 L9 20"
-          fill="none"
-          stroke={color}
-          strokeWidth="3.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </span>
-  );
-}
-
 function CTASection() {
   return (
     <div className="w-full bg-white py-8 px-5">
       <div className="max-w-[700px] mx-auto flex flex-col items-center gap-3">
-        {/* LINEボタン */}
-        <div className="w-full max-w-[400px] flex items-center gap-[3px]">
+        {/* LINEボタン（デザイン画像） */}
+        <div className="w-full max-w-[400px] flex items-center gap-[5px]">
           <CtaArrow />
           <a
             href="https://liff.line.me/1657543912-RMJdJXbp/landing?follow=%40798ddeqo&lp=MIuuvw&liff_id=1657543912-RMJdJXbp"
-            className="flex-1 min-w-0 flex items-center gap-[10px] max-[389px]:gap-[6px] h-[64px] pl-[16px] pr-[14px] max-[389px]:pl-[10px] max-[389px]:pr-[8px] rounded-full hover:brightness-[1.04] active:brightness-95 transition"
-            style={{
-              textDecoration: "none",
-              backgroundImage:
-                "linear-gradient(180deg,#0AD253 0%,#0BBE44 8%,#0BBE44 40%,#06B037 85%,#07A531 100%)",
-            }}
+            className="flex-1 min-w-0 block hover:brightness-[1.04] active:brightness-95 transition"
+            style={{ textDecoration: "none" }}
           >
-            {/* LINEロゴ：白い角丸バッジ（44px）の中に緑の吹き出し（34px） */}
-            <span className="shrink-0 grid place-items-center w-[44px] h-[44px] max-[359px]:w-[36px] max-[359px]:h-[36px] rounded-[12px] bg-white">
-              <svg viewBox="0 0 40 40" className="w-[34px] h-[34px] max-[359px]:w-[28px] max-[359px]:h-[28px]" aria-hidden="true" focusable="false">
-                <ellipse cx="20" cy="17.5" rx="16" ry="13.2" fill="#06B037" />
-                <path d="M16.4 28 L20.4 35 L22.6 27 Z" fill="#06B037" />
-                <text
-                  x="20"
-                  y="22.2"
-                  textAnchor="middle"
-                  fill="#ffffff"
-                  fontSize="11"
-                  fontWeight="700"
-                  letterSpacing="0.2"
-                  fontFamily="Inter, Helvetica, Arial, sans-serif"
-                >
-                  LINE
-                </text>
-              </svg>
-            </span>
-
-            <span className="flex-1 min-w-0 flex flex-col items-center gap-[4px]">
-              <span
-                className="px-[11px] py-[3px] rounded-full bg-white text-[#1E9B45] font-bold leading-none whitespace-nowrap"
-                style={{ fontSize: "clamp(10px, 3.3vw, 13px)", letterSpacing: "0.14em" }}
-              >
-                LINE登録者限定
-              </span>
-              <span
-                className="text-[#FAF80D] font-black leading-none whitespace-nowrap text-[20px] max-[389px]:text-[5.1vw]"
-                style={{
-                  fontFamily: "Inter, 'Noto Sans JP', sans-serif",
-                  textShadow: "0 1px 1px rgba(3,110,45,0.4)",
-                }}
-              >
-                LINE講座をスタート
-              </span>
-            </span>
-            <CtaChevron color="#0EA63C" box="w-[34px] h-[34px] max-[359px]:w-[28px] max-[359px]:h-[28px]" icon="w-[13px] h-[13px] max-[359px]:w-[11px] max-[359px]:h-[11px]" />
+            <img
+              src={publicFile("cta-line.webp")}
+              alt="LINE登録者限定 LINE講座をスタート"
+              width={850}
+              height={180}
+              className="block w-full h-auto"
+            />
           </a>
         </div>
         <p
@@ -170,50 +116,21 @@ function CTASection() {
           1週間で痩せ体質を作る無料講座をプレゼント中🎁
         </p>
 
-        {/* HOT PEPPERボタン */}
-        <div className="w-full max-w-[400px] flex items-center gap-[3px]">
+        {/* HOT PEPPERボタン（デザイン画像） */}
+        <div className="w-full max-w-[400px] flex items-center gap-[5px]">
           <CtaArrow />
           <a
             href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000752318&couponId=CP00000011986028&add=0&rootCd=10"
-            className="relative flex-1 min-w-0 flex items-center gap-[12px] max-[389px]:gap-[7px] h-[58px] pl-[18px] pr-[11px] max-[389px]:pl-[10px] max-[389px]:pr-[8px] rounded-full border border-[#DD8099] shadow-[0_3px_10px_rgba(234,131,161,0.55)] hover:brightness-[1.04] active:brightness-95 transition overflow-hidden"
-            style={{
-              textDecoration: "none",
-              // 参考デザインの縦方向の色を実測して再現（上が明るく中央が濃く下がまた明るい）
-              backgroundImage:
-                "linear-gradient(180deg,#FFBDCD 0%,#F6B3C5 15%,#F295AD 31%,#EC88A4 45%,#EB84A2 72%,#F688A8 85%,#FA8CAD 100%)",
-            }}
+            className="flex-1 min-w-0 block hover:brightness-[1.04] active:brightness-95 transition"
+            style={{ textDecoration: "none" }}
           >
-            {/* 内側の明るいリング（参考デザインの二重線） */}
-            <span className="pointer-events-none absolute top-[1.5px] left-[1.5px] right-[1.5px] bottom-[3px] rounded-full border border-[#FFCEE1]"></span>
-            {/* キラキラ装飾（静止） */}
-            <span className="pointer-events-none absolute left-[12px] top-[9px] text-white text-[9px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
-            <span className="pointer-events-none absolute left-[52px] top-[6px] text-white text-[10px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
-            <span className="pointer-events-none absolute left-[62px] bottom-[9px] text-white/85 text-[7px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
-            <span className="pointer-events-none absolute right-[64px] top-[8px] text-white/85 text-[8px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
-            <span className="pointer-events-none absolute right-[44px] bottom-[10px] text-white text-[8px] leading-none" style={{ textShadow: "0 0 3px rgba(255,255,255,0.85)" }}>✦</span>
-
-            {/* ホットペッパービューティーの「B」（27px） */}
-            <span className="relative shrink-0 grid place-items-center w-[27px] h-[27px] max-[359px]:w-[23px] max-[359px]:h-[23px] rounded-[9px] bg-white">
-              <span
-                className="text-[#E07D9C] leading-none"
-                style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontStyle: "italic", fontSize: "17px" }}
-              >
-                B
-              </span>
-            </span>
-
-            <span
-              className="relative flex-1 min-w-0 text-center text-white font-semibold leading-none whitespace-nowrap"
-              style={{
-                fontFamily: "Inter, 'Noto Sans JP', sans-serif",
-                textShadow: "0 0 3px rgba(255,255,255,0.4)",
-                letterSpacing: "0.02em",
-                fontSize: "clamp(12px, 4.15vw, 17px)",
-              }}
-            >
-              ホットペッパーで予約する
-            </span>
-            <CtaChevron color="#E281A4" box="w-[24px] h-[24px] max-[359px]:w-[20px] max-[359px]:h-[20px]" icon="w-[10px] h-[10px] max-[359px]:w-[9px] max-[359px]:h-[9px]" />
+            <img
+              src={publicFile("cta-hotpepper.webp")}
+              alt="ホットペッパーで予約する"
+              width={741}
+              height={152}
+              className="block w-full h-auto"
+            />
           </a>
         </div>
         <p className="text-center text-[#3a3a3a] text-sm font-normal">今すぐ予約したい方はこちらからどうぞ</p>
