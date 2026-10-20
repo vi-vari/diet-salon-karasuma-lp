@@ -101,7 +101,7 @@ function CTASection() {
             style={{ textDecoration: "none" }}
           >
             <img
-              src={publicFile("cta-line.webp")}
+              src={asset("cta-line.webp")}
               alt="LINE登録者限定 LINE講座をスタート"
               width={850}
               height={180}
@@ -125,7 +125,7 @@ function CTASection() {
             style={{ textDecoration: "none" }}
           >
             <img
-              src={publicFile("cta-hotpepper.webp")}
+              src={asset("cta-hotpepper.webp")}
               alt="ホットペッパーで予約する"
               width={741}
               height={152}
