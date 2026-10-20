@@ -72,7 +72,7 @@ function a(id: string) {
 function CtaArrow() {
   return (
     <svg
-      className="cta-arrow shrink-0 w-[26px] h-[28px] sm:w-[30px] sm:h-[32px] drop-shadow-[1px_2px_1px_rgba(0,0,0,0.15)]"
+      className="cta-arrow shrink-0 w-[7.2%] min-w-[26px] h-auto aspect-[55/59] drop-shadow-[1px_2px_1px_rgba(0,0,0,0.15)]"
       viewBox="0 0 55 59"
       aria-hidden="true"
       focusable="false"
@@ -93,7 +93,7 @@ function CTASection() {
     <div className="w-full bg-white py-8 px-5">
       <div className="max-w-[700px] mx-auto flex flex-col items-center gap-3">
         {/* LINEボタン（デザイン画像） */}
-        <div className="w-full max-w-[400px] flex items-center gap-[5px]">
+        <div className="w-full max-w-[700px] flex items-center gap-[1.2%]">
           <CtaArrow />
           <a
             href="https://liff.line.me/1657543912-RMJdJXbp/landing?follow=%40798ddeqo&lp=MIuuvw&liff_id=1657543912-RMJdJXbp"
@@ -117,7 +117,7 @@ function CTASection() {
         </p>
 
         {/* HOT PEPPERボタン（デザイン画像） */}
-        <div className="w-full max-w-[400px] flex items-center gap-[5px]">
+        <div className="w-full max-w-[700px] flex items-center gap-[1.2%]">
           <CtaArrow />
           <a
             href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000752318&couponId=CP00000011986028&add=0&rootCd=10"
