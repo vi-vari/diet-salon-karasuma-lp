@@ -68,30 +68,71 @@ function a(id: string) {
   return assets[id] || "";
 }
 
-// CTAボタンコンポーネント（同一タブで遷移）
+// CTAボタン左の金色矢印。点滅アニメーションは index.css の .cta-arrow に定義。
+function CtaArrow() {
+  return (
+    <svg
+      className="cta-arrow shrink-0 w-[26px] h-[28px] sm:w-[30px] sm:h-[32px] drop-shadow-[1px_2px_1px_rgba(0,0,0,0.15)]"
+      viewBox="0 0 55 59"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <linearGradient id="cta-arrow-gold" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FFDC1D" />
+          <stop offset="100%" stopColor="#FFBD1C" />
+        </linearGradient>
+      </defs>
+      <path d="M4 13 H32 V5 L53 29.5 L32 54 V46 H4 Z" fill="url(#cta-arrow-gold)" />
+    </svg>
+  );
+}
+
 function CTASection() {
   return (
     <div className="w-full bg-white py-8 px-5">
-      <div className="max-w-[700px] mx-auto flex flex-col items-center gap-3 px-6">
-        {/* LINEボタン */}
-        <a
-          href="https://liff.line.me/1657543912-RMJdJXbp/landing?follow=%40798ddeqo&lp=MIuuvw&liff_id=1657543912-RMJdJXbp"
-          className="flex items-center justify-center gap-3 w-full max-w-[340px] h-[54px] px-6 bg-[#4dce6e] rounded-[3px] hover:opacity-90 transition-opacity"
-          style={{ textDecoration: "none" }}
+      <div className="max-w-[700px] mx-auto flex flex-col items-center gap-3">
+        {/* LINEボタン（デザイン画像） */}
+        <div className="w-full max-w-[400px] flex items-center gap-[5px]">
+          <CtaArrow />
+          <a
+            href="https://liff.line.me/1657543912-RMJdJXbp/landing?follow=%40798ddeqo&lp=MIuuvw&liff_id=1657543912-RMJdJXbp"
+            className="flex-1 min-w-0 block hover:brightness-[1.04] active:brightness-95 transition"
+            style={{ textDecoration: "none" }}
+          >
+            <img
+              src={asset("cta-line.webp")}
+              alt="LINE登録者限定 LINE講座をスタート"
+              width={850}
+              height={180}
+              className="block w-full h-auto"
+            />
+          </a>
+        </div>
+        <p
+          className="text-center text-[#3a3a3a] font-normal whitespace-nowrap"
+          style={{ fontSize: "clamp(11px, 3.45vw, 15px)" }}
         >
-          <i className="fab fa-line text-white text-xl leading-none flex-shrink-0"></i>
-          <span className="text-white text-[18px] sm:text-[22px] font-semibold leading-none whitespace-nowrap" style={{ fontFamily: "Inter, sans-serif" }}>LINE講座をスタート</span>
-        </a>
-        <p className="text-center text-[#3a3a3a] text-[15px] font-normal">1週間で痩せ体質を作る無料講座をプレゼント中🎁</p>
-        {/* HOT PEPPERボタン */}
-        <a
-          href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000752318&couponId=CP00000011986028&add=0&rootCd=10"
-          className="flex items-center justify-center gap-3 w-full max-w-[340px] h-[54px] px-6 bg-[#bf1391] rounded-[3px] hover:opacity-90 transition-opacity"
-          style={{ textDecoration: "none" }}
-        >
-          <i className="fas fa-calendar-alt text-white text-xl leading-none flex-shrink-0"></i>
-          <span className="text-white text-[18px] sm:text-[22px] font-semibold leading-none whitespace-nowrap" style={{ fontFamily: "Inter, sans-serif" }}>ホットペッパーで予約する</span>
-        </a>
+          1週間で痩せ体質を作る無料講座をプレゼント中🎁
+        </p>
+
+        {/* HOT PEPPERボタン（デザイン画像） */}
+        <div className="w-full max-w-[400px] flex items-center gap-[5px]">
+          <CtaArrow />
+          <a
+            href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000752318&couponId=CP00000011986028&add=0&rootCd=10"
+            className="flex-1 min-w-0 block hover:brightness-[1.04] active:brightness-95 transition"
+            style={{ textDecoration: "none" }}
+          >
+            <img
+              src={asset("cta-hotpepper.webp")}
+              alt="ホットペッパーで予約する"
+              width={741}
+              height={152}
+              className="block w-full h-auto"
+            />
+          </a>
+        </div>
         <p className="text-center text-[#3a3a3a] text-sm font-normal">今すぐ予約したい方はこちらからどうぞ</p>
         <p className="text-center text-[#3a3a3a] text-sm font-normal">ダイエットカウンセリングが初回限定500円🎉</p>
       </div>
