@@ -371,19 +371,28 @@ export default function Home() {
             <ListItem text="住所：京都府京都市中京区蛸薬師通烏丸西入橋弁慶町234 Mjp烏丸ビル3F 南東側" />
             <ListItem text="カードOK / 交通系IC / PayPay" />
           </div>
-          {/* Googleマップ埋め込み（iframe方式 - 本番環境対応） */}
-          <div className="w-full overflow-hidden rounded" style={{ height: '400px' }}>
+          {/* Googleマップ埋め込み（iframe方式 - 本番環境対応）
+              地図全体をリンクにして、クリックでGoogleマップへ遷移させる。
+              iframeは pointer-events-none にして、クリックを親のaタグに通している。 */}
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=%E7%BE%8EVARI+Beauty+Salon+%E5%9B%9B%E6%9D%A1%E7%83%8F%E4%B8%B8%E6%95%B4%E4%BD%93%E9%99%A2"
+            aria-label="Googleマップで美VARI Beauty Salon 四条烏丸整体院の場所を開く"
+            className="block w-full overflow-hidden rounded"
+            style={{ height: '400px', textDecoration: 'none' }}
+          >
             <iframe
               title="美VARI Beauty Salon 四条烏丸整体院 地図"
               src="https://maps.google.com/maps?q=%E7%BE%8EVARI+Beauty+Salon+%E5%9B%9B%E6%9D%A1%E7%83%8F%E4%B8%B8%E6%95%B4%E4%BD%93%E9%99%A2&output=embed&hl=ja"
               width="100%"
               height="400"
-              style={{ border: 0, display: 'block' }}
+              style={{ border: 0, display: 'block', pointerEvents: 'none' }}
+              tabIndex={-1}
+              aria-hidden="true"
               allowFullScreen
               loading="eager"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </div>
+          </a>
         </div>
       </div>
 
